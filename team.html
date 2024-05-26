@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.1/assets/owl.carousel.css">
+    <link rel="stylesheet" href="https://themes.audemedia.com/html/goodgrowth/css/owl.theme.default.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="team.css">
+</head>
+<body>
+    <div id="main">
+        <div id="page">
+            <div id="logo-container">
+                <img src="components/logo.gif" alt="Logo">
+            </div>
+            <nav>
+                <div id="capsule">
+                    <a href="javascript:void(0)" onclick="window.location.href='index.html'">Home</a>
+                </div>
+                <button onclick="location.href='login.html'">Login</button>
+            </nav>
+
+            <!-- teams -->
+            <section class="teams" style="width:100%; position: relative; text-align: center;">
+                <h2 class="carousel-heading">Our <br> <span class="space" id="word">Team</span> </h2>
+                <div class="carousel">
+                    <div class="carousel__item carousel__item--main">
+                        <div class="carousel__content">
+                            <img src="team/clive.jpg" alt="Clive Cardoza">
+                            <div class="carousel__text">
+                                <h3>Clive <br> Cardoza</h3>
+                                <p>Founder & COO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel__item">
+                        <div class="carousel__content">
+                            <img src="team/kundeshwar.jpg" alt="Kundeshwar Pundalik">
+                            <div class="carousel__text">
+                                <h3>Kundeshwar <br> Pundalik</h3>
+                                <p>CTO & Co-Founder</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel__item">
+                        <div class="carousel__content">
+                            <img src="team/kshitij.jpg" alt="Kshitij Jadhav">
+                            <div class="carousel__text">
+                                <h3>Kshitij <br> Jadhav</h3>
+                                <p>Technical Advisory</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel__item">
+                        <div class="carousel__content">
+                            <img src="team/mauli.jpg" alt="Mauli Soni">
+                            <div class="carousel__text">
+                                <h3>Mauli <br> Soni</h3>
+                                <p>Marketing & Sales</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel__item">
+                        <div class="carousel__content">
+                            <img src="team/kevin.jpg" alt="Kevin Lewis">
+                            <div class="carousel__text">
+                                <h3>Kevin <br> Lewis</h3>
+                                <p>Founder & CEO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel__btns">
+                        <button class="carousel__btn" id="leftBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="currentColor" fill-rule="evenodd" d="m15 4l2 2l-6 6l6 6l-2 2l-8-8z"/>
+                            </svg>
+                        </button>
+                        <button class="carousel__btn" id="rightBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="currentColor" fill-rule="evenodd" d="m9.005 4l8 8l-8 8L7 18l6.005-6L7 6z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <!-- END OF teams -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.1/owl.carousel.min.js"></script>
+    <script src="team.js"></script>
+    <script>
+        'use strict';
+    
+        const carouselItems = document.querySelectorAll('.carousel__item');
+        let currentIndex = 0;
+        const leftBtn = document.querySelector('#leftBtn');
+        const rightBtn = document.querySelector('#rightBtn');
+        const heading = document.querySelector('.carousel-heading');
+        let isFirstClick = true;
+    
+        function updateCarousel() {
+            carouselItems.forEach((item, index) => {
+                item.classList.remove('carousel__item--main', 'carousel__item--left', 'carousel__item--left-secondary', 'carousel__item--right', 'carousel__item--right-secondary');
+                
+                if (index === currentIndex) {
+                    item.classList.add('carousel__item--main');
+                } else if (index === currentIndex + 1) {
+                    item.classList.add('carousel__item--right');
+                } else if (index === currentIndex + 2) {
+                    item.classList.add('carousel__item--right-secondary');
+                } else if (index === currentIndex - 1) {
+                    item.classList.add('carousel__item--left');
+                } else if (index === currentIndex - 2) {
+                    item.classList.add('carousel__item--left-secondary');
+                }
+            });
+    
+            leftBtn.disabled = currentIndex === 0;
+            rightBtn.disabled = currentIndex === carouselItems.length - 1;
+
+            // Reset heading position for the first image
+            if (currentIndex === 0) {
+                heading.classList.remove('top');
+            }
+        }
+    
+        rightBtn.addEventListener('click', function() {
+            if (isFirstClick) {
+                heading.classList.add('top');
+                isFirstClick = true;
+            }
+            if (currentIndex < carouselItems.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+    
+        leftBtn.addEventListener('click', function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+    
+        updateCarousel(); // Initial call to set up the carousel
+    </script>
+    
+</body>
+</html>
