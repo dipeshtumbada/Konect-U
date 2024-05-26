@@ -104,58 +104,68 @@
     <script>
         'use strict';
     
-        const carouselItems = document.querySelectorAll('.carousel__item');
-        let currentIndex = 0;
-        const leftBtn = document.querySelector('#leftBtn');
-        const rightBtn = document.querySelector('#rightBtn');
-        const heading = document.querySelector('.carousel-heading');
-        let isFirstClick = true;
-    
-        function updateCarousel() {
-            carouselItems.forEach((item, index) => {
-                item.classList.remove('carousel__item--main', 'carousel__item--left', 'carousel__item--left-secondary', 'carousel__item--right', 'carousel__item--right-secondary');
-                
-                if (index === currentIndex) {
-                    item.classList.add('carousel__item--main');
-                } else if (index === currentIndex + 1) {
-                    item.classList.add('carousel__item--right');
-                } else if (index === currentIndex + 2) {
-                    item.classList.add('carousel__item--right-secondary');
-                } else if (index === currentIndex - 1) {
-                    item.classList.add('carousel__item--left');
-                } else if (index === currentIndex - 2) {
-                    item.classList.add('carousel__item--left-secondary');
-                }
-            });
-    
-            leftBtn.disabled = currentIndex === 0;
-            rightBtn.disabled = currentIndex === carouselItems.length - 1;
+    const carouselItems = document.querySelectorAll('.carousel__item');
+    let currentIndex = 0;
+    const leftBtn = document.querySelector('#leftBtn');
+    const rightBtn = document.querySelector('#rightBtn');
+    const heading = document.querySelector('.carousel-heading');
+    let isFirstClick = true;
 
-            // Reset heading position for the first image
-            if (currentIndex === 0) {
-                heading.classList.remove('top');
-            }
+    function updateCarousel() {
+        carouselItems.forEach((item, index) => {
+            item.classList.remove('carousel__item--main', 'carousel__item--left', 'carousel__item--left-secondary', 'carousel__item--right', 'carousel__item--right-secondary');
+            
+            if (index === currentIndex) {
+                item.classList.add('carousel__item--main');
+            } else if (index === currentIndex + 1) {
+                item.classList.add('carousel__item--right');
+            } else if (index === currentIndex + 2) {
+                item.classList.add('carousel__item--right-secondary');
+            } else if (index === currentIndex - 1) {
+                item.classList.add('carousel__item--left');
+            } else if (index === currentIndex - 2) {
+                item.classList.add('carousel__item--left-secondary');
+            } else {
+            item.style.display = 'none';  // Hide items that are not visible
         }
-    
-        rightBtn.addEventListener('click', function() {
-            if (isFirstClick) {
-                heading.classList.add('top');
-                isFirstClick = true;
-            }
-            if (currentIndex < carouselItems.length - 1) {
-                currentIndex++;
-                updateCarousel();
-            }
         });
-    
-        leftBtn.addEventListener('click', function() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        });
-    
-        updateCarousel(); // Initial call to set up the carousel
+
+
+        // Handle showing the items that are around the current index
+    if (currentIndex - 2 >= 0) carouselItems[currentIndex - 2].style.display = 'flex';
+    if (currentIndex - 1 >= 0) carouselItems[currentIndex - 1].style.display = 'flex';
+    if (currentIndex + 1 < carouselItems.length) carouselItems[currentIndex + 1].style.display = 'flex';
+    if (currentIndex + 2 < carouselItems.length) carouselItems[currentIndex + 2].style.display = 'flex';
+
+        leftBtn.disabled = currentIndex === 0;
+        rightBtn.disabled = currentIndex === carouselItems.length - 1;
+
+        // Reset heading position for the first image
+        if (currentIndex === 0) {
+            heading.classList.remove('top');
+        }
+    }
+
+    rightBtn.addEventListener('click', function() {
+        if (isFirstClick) {
+            heading.classList.add('top');
+            isFirstClick = true;
+        }
+        if (currentIndex < carouselItems.length - 1) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    leftBtn.addEventListener('click', function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    updateCarousel(); // Initial call to set up the carousel
+
     </script>
     
 </body>

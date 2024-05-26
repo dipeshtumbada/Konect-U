@@ -127,9 +127,9 @@ html,body{
     height: 100%;
     overflow: hidden;
     left: -3%;
-}
+} 
 
-.carousel__item {
+ .carousel__item {
     transition: all 300ms ease;
     opacity: 0.5;
     filter: grayscale(1);
@@ -181,7 +181,7 @@ html,body{
     transform: scale(0.6) translateX(-300%);
     z-index: 1;
     mask-image: linear-gradient(to top, transparent 40%, black 100%);
-}
+} 
 
 .carousel__content {
     border: 1px solid #ffffff;

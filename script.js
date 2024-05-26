@@ -58,27 +58,37 @@ function loco() {
     trigger: ".wrapper",
     start: "top 60%",
     onEnter: () => {
-      gsap.fromTo(".laptop-screen", { scale: 0.5, opacity: 0 }, { duration: 1, scale: 1, opacity: 1 });
-      gsap.fromTo(".device", { scale: 0.5, opacity: 0 }, { duration: 1, scale: 1, opacity: 1 });
+      gsap.fromTo(".laptop-screen", { scale: 0.5, opacity: 0 }, { duration: 1, scale: 1.5, opacity: 1 });
+      gsap.fromTo(".device", { scale: 0.5, opacity: 0 }, { duration: 1, scale: 1.5, opacity: 1 });
       gsap.fromTo(".screen", { scale: 0.5, opacity: 0 }, { duration: 1, scale: 1, opacity: 1 });
     },
     onLeaveBack: () => {
-      gsap.fromTo(".device", { scale: 1 }, { duration: 1, scale: 0.5 });
-      gsap.fromTo(".laptop-screen", { scale: 1 }, { duration: 1, scale: 0.5 });
-      gsap.fromTo(".screen", { scale: 1 }, { duration: 1, scale: 0.5 });
+      gsap.fromTo(".device", { scale: 1.5 }, { duration: 1, scale: 0.5 });
+      gsap.fromTo(".laptop-screen", { scale: 1.5 }, { duration: 1, scale: 0.5 });
+      gsap.fromTo(".screen", { scale: 1.5 }, { duration: 1, scale: 0.5 });
     },
     scroller: "#main"
   });
-// Wait for a certain amount of time before showing the tube lights
-setTimeout(() => {
-  // Select the tube light elements
-  const upperRightTubeLight = document.querySelector('.tubelight-upper-right');
-  const lowerLeftTubeLight = document.querySelector('.tubelight-lower-left');
+  setTimeout(() => {
+    const middleWord = document.getElementById('middle-word');
+    const lastWord = document.getElementById('last-word');
 
-  // Add a class to make them visible
-  upperRightTubeLight.classList.add('visible');
-  lowerLeftTubeLight.classList.add('visible');
-}, 2500); // Delay in milliseconds (e.g., 2500 ms = 2.5 seconds)
+    const middleWordRect = middleWord.getBoundingClientRect();
+    const lastWordRect = lastWord.getBoundingClientRect();
+
+    const upperRightTubeLight = document.getElementById('tubelight-right');
+    const lowerLeftTubeLight = document.getElementById('tubelight-left');
+
+    upperRightTubeLight.style.top = `${middleWordRect.top}px`;
+    upperRightTubeLight.style.left = `${middleWordRect.right + 10}px`;
+
+    lowerLeftTubeLight.style.top = `${lastWordRect.top}px`;
+    lowerLeftTubeLight.style.left = `${lastWordRect.left - 210}px`;
+
+    upperRightTubeLight.classList.add('visible');
+    lowerLeftTubeLight.classList.add('visible');
+}, 2500);
+
 
   // You can trigger the animation if needed
   window.onload = function() {
