@@ -104,11 +104,89 @@ html,body{
     align-items: center;
     justify-content: center; 
 }
+
+
+#menu-icon {
+  display: none; /* Hide the menu icon by default */
+  cursor: pointer;
+}
+
+#menu-icon i {
+  font-size: 24px;
+  color: white;
+}
+
+/* Media query for screens between 768px and 1180px */
+@media (max-width: 1180px) {
+  #page > nav {
+      padding: 0 20px;
+      justify-content: space-between;
+  }
+
+  #capsule {
+      display: flex; /* Ensure capsule is displayed */
+      flex-direction: row;
+      justify-content: flex-start; /* Align capsule to the left */
+      gap: 22px;
+  }
+
+  #page > nav > button {
+      display: block;
+      align-self: center; /* Align login button to the center */
+      margin-left: auto; /* Push login button to the right */
+  }
+
+  #menu-icon {
+      display: none; /* Hide menu icon */
+  }
+}
+
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 896px) {
+  #page > nav {
+      padding: 0 20px;
+      justify-content: space-between;
+  }
+  
+  #capsule {
+      display: none; /* Hide the navigation links by default */
+      flex-direction: column;
+      position: absolute;
+      top: 14vh; /* Position below the nav bar */
+      left: 0;
+      right: 0;
+      background-color: #2b2d32;
+      border-radius: 0;
+      padding: 10px;
+      gap: 10px;
+  }
+
+  #page > nav > button {
+      display: none; /* Hide the login button by default */
+  }
+
+  #menu-icon {
+      display: block; /* Show the menu icon */
+  }
+
+  /* Show the nav links and button when the menu icon is clicked */
+  #capsule.show {
+      display: flex;
+  }
+
+  #page > nav.show > button {
+      display: block;
+      margin-top: 10px; /* Add margin to separate login button from nav links */
+      align-self: center; /* Center the login button */
+  }
+
+}
   
 .tubelight {
   position: absolute;
   width: 200px;
-  height: 10px;
+  height: 2px;
   background: white;
   box-shadow: 0 0 50px 20px rgba(255, 255, 255, 0.5);
   display: none;
@@ -137,41 +215,38 @@ html,body{
     transform: translate(-50%, -50%);
     border: 3px solid #2b261e; 
     border-radius: 50%; 
+    aspect-ratio: 1;
+    transition: width 0.3s ease, height 0.3s ease;
   }
-  
+
   .circle:nth-child(5) {
-    width: calc(50% - -600px); 
-    height: calc(100% - -600px); 
+    width: 1300px;
+    height: 1300px;
   }
-  
+
   .circle:nth-child(6) {
-    width: calc(50% - -400px); 
-    height: calc(100% - -400px); 
+    width: 1100px;
+    height: 1100px;
   }
   
   .circle:nth-child(7) {
-    width: calc(50% - -200px);   
-    height: calc(100% - -200px);
+    width: 900px;
+    height: 900px;
   }
   
   .circle:nth-child(8) {
-    width: calc(50% - 0px); 
-    height: calc(100% - 0px); 
+    width: 700px;
+    height: 700px;
   }
   
   .circle:nth-child(9) {
-    width: calc(50% - 200px); 
-    height: calc(100% - 200px); 
+    width: 500px;
+    height: 500px;
   }
   
   .circle:nth-child(10) {
-    width: calc(50% - 400px); 
-    height: calc(100% - 400px); 
-  }
-
-  .circle:nth-child(11) {
-    width: calc(50% - 600px); 
-    height: calc(100% - 600px); 
+    width: 300px;
+    height: 300px;
   }
   
   .text-animation {
@@ -204,7 +279,7 @@ html,body{
   
   #middle-word {
     animation: slideFromRight 1.5s ease-in-out forwards;
-    transform: translate(-50%, -50%); /* Center the middle word precisely */
+    /* transform: translate(-50%, -50%);  */
     margin-inline-start: 300px;
   }
   
@@ -237,6 +312,61 @@ html,body{
     color: transparent;
     background-origin: border-box;
   }
+
+  /* Media queries for responsive design */
+@media (max-width: 768px) {
+  .circle:nth-child(5) {
+    width: 700px;
+    height: 700px;
+  }
+
+  .circle:nth-child(6) {
+    width: 600px;
+    height: 600px;
+  }
+
+  .circle:nth-child(7) {
+    width: 500px;
+    height: 500px;
+  }
+
+  .circle:nth-child(8) {
+    width: 400px;
+    height: 400px;
+  }
+
+  .circle:nth-child(9) {
+    width: 300px;
+    height: 300px;
+  }
+
+  .circle:nth-child(10) {
+    width: 200px;
+    height: 200px;
+  }
+
+  #first-word, #last-word {
+    font-size: 50px;
+  }
+
+  #middle-word {
+    font-size: 50px;
+    margin-inline-start: 120px;
+  }
+
+  .tubelight {
+    height: 2px;
+    width: 100px;
+  }
+
+  .tubelight {
+    display: none; /* Hide tubelights by default on small screens */
+  }
+
+  .tubelight.visible {
+    display: block; /* Ensure they can still be shown when needed */
+  }
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
@@ -398,7 +528,7 @@ html,body{
   }
   
   .card {
-    height: 75%;
+    height: 80%;
     width: 35%;
     border-radius: 10px;
     overflow: hidden;
@@ -420,6 +550,8 @@ html,body{
     align-items: center;
     position: relative;
     border-radius: 10px;
+    gap: 5px;
+    
 
     box-sizing: border-box;
   }
@@ -447,14 +579,13 @@ html,body{
     white-space: nowrap;
     margin-bottom: 20px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   #book p{
     color: white;
     font-size: 16px;
     text-align: center;
-    margin-bottom: 5px;
   }
 
   #book ul {

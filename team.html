@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://themes.audemedia.com/html/goodgrowth/css/owl.theme.default.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="team.css">
+    <link rel="stylesheet" href="CSS/team.css">
 </head>
 <body>
     <div id="main">
@@ -23,6 +23,9 @@
             <nav>
                 <div id="capsule">
                     <a href="javascript:void(0)" onclick="window.location.href='index.html'">Home</a>
+                    <a href="javascript:void(0)" onclick="window.location.href='index.html'">About</a>
+                    <a href="javascript:void(0)" onclick="window.location.href='index.html'">Our Services</a>
+                    <a href="#team" href="javascript:void(0)" onclick="window.location.href='team.html'">Our Team</a>
                 </div>
                 <button onclick="location.href='login.html'">Login</button>
             </nav>
@@ -31,15 +34,18 @@
             <section class="teams" style="width:100%; position: relative; text-align: center;">
                 <h2 class="carousel-heading">Our <br> <span class="space" id="word">Team</span> </h2>
                 <div class="carousel">
-                    <div class="carousel__item carousel__item--main">
-                        <div class="carousel__content">
-                            <img src="team/clive.jpg" alt="Clive Cardoza">
-                            <div class="carousel__text">
-                                <h3>Clive <br> Cardoza</h3>
-                                <p>Founder & COO</p>
+                    <div class="border">
+                        <div class="carousel__item carousel__item--main">
+                            <div class="carousel__content">
+                                <img src="team/clive.jpg" alt="Clive Cardoza">
+                                <div class="carousel__text">
+                                    <h3>Clive <br> Cardoza</h3>
+                                    <p>Founder & COO</p>
+                                </div>
                             </div>
-                        </div>
                     </div>
+                    </div>
+                    <div class="border">
                     <div class="carousel__item">
                         <div class="carousel__content">
                             <img src="team/kundeshwar.jpg" alt="Kundeshwar Pundalik">
@@ -49,6 +55,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="border">
                     <div class="carousel__item">
                         <div class="carousel__content">
                             <img src="team/kshitij.jpg" alt="Kshitij Jadhav">
@@ -58,6 +66,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="border">
                     <div class="carousel__item">
                         <div class="carousel__content">
                             <img src="team/mauli.jpg" alt="Mauli Soni">
@@ -67,6 +77,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="border">
                     <div class="carousel__item">
                         <div class="carousel__content">
                             <img src="team/kevin.jpg" alt="Kevin Lewis">
@@ -76,6 +88,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                     <div class="carousel__btns">
                         <button class="carousel__btn" id="leftBtn">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -100,7 +113,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.1/owl.carousel.min.js"></script>
-    <script src="team.js"></script>
+    <script src="JS/script.js"></script>
     <script>
         'use strict';
     
@@ -126,8 +139,9 @@
             } else if (index === currentIndex - 2) {
                 item.classList.add('carousel__item--left-secondary');
             } else {
-            item.style.display = 'none';  // Hide items that are not visible
+            item.style.display = 'none'; 
         }
+
         });
 
 

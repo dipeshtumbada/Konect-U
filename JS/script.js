@@ -42,6 +42,18 @@ function loco() {
   // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
   ScrollTrigger.refresh();
 
+  document.addEventListener("DOMContentLoaded", function() {
+    const menuIcon = document.getElementById('menu-icon');
+    const capsule = document.getElementById('capsule');
+    const navButton = document.querySelector('#page > nav > button');
+
+    menuIcon.addEventListener('click', function() {
+        capsule.classList.toggle('show');
+        navButton.classList.toggle('show');
+    });
+});
+
+
   ScrollTrigger.create({
     trigger: ".wrapper",
     start: "top 50%",
@@ -69,25 +81,42 @@ function loco() {
     },
     scroller: "#main"
   });
-  setTimeout(() => {
-    const middleWord = document.getElementById('middle-word');
-    const lastWord = document.getElementById('last-word');
 
+document.addEventListener("DOMContentLoaded", function() {
+  const tubelightRight = document.getElementById('tubelight-right');
+  const tubelightLeft = document.getElementById('tubelight-left');
+  const middleWord = document.getElementById('middle-word');
+  const lastWord = document.getElementById('last-word');
+
+  function positionTubelights() {
     const middleWordRect = middleWord.getBoundingClientRect();
     const lastWordRect = lastWord.getBoundingClientRect();
 
-    const upperRightTubeLight = document.getElementById('tubelight-right');
-    const lowerLeftTubeLight = document.getElementById('tubelight-left');
+    if(window.innerWidth <= 798) {
+      tubelightRight.style.top = `${(middleWordRect.top + middleWordRect.height / 2) - 10}px`;
+    tubelightRight.style.left = `${(middleWordRect.right) - 20}px`;
+    tubelightRight.style.transform = `rotate(30deg) translateY(-50%)`;
 
-    upperRightTubeLight.style.top = `${middleWordRect.top}px`;
-    upperRightTubeLight.style.left = `${middleWordRect.right + 10}px`;
+    tubelightLeft.style.top = `${(lastWordRect.top + lastWordRect.height / 2) - 40}px`;
+    tubelightLeft.style.left = `${(lastWordRect.left) - 60}px`;
+    tubelightLeft.style.transform = `rotate(150deg) translateY(-50%)`;
+    } else {
+      tubelightRight.style.top = `${(middleWordRect.top + middleWordRect.height / 2) - 60}px`;
+    tubelightRight.style.left = `${(middleWordRect.right) - 70}px`;
+    tubelightRight.style.transform = `rotate(30deg) translateY(-50%)`;
 
-    lowerLeftTubeLight.style.top = `${lastWordRect.top}px`;
-    lowerLeftTubeLight.style.left = `${lastWordRect.left - 210}px`;
+    tubelightLeft.style.top = `${(lastWordRect.top + lastWordRect.height / 2) - 80}px`;
+    tubelightLeft.style.left = `${(lastWordRect.left) - 110}px`;
+    tubelightLeft.style.transform = `rotate(150deg) translateY(-50%)`;
+    }
 
-    upperRightTubeLight.classList.add('visible');
-    lowerLeftTubeLight.classList.add('visible');
-}, 2500);
+    tubelightRight.classList.add('visible');
+    tubelightLeft.classList.add('visible');
+  }
+
+  setTimeout(positionTubelights, 2500);
+  window.addEventListener('resize', positionTubelights);
+});
 
 
   // You can trigger the animation if needed
