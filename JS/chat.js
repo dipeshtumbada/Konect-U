@@ -176,8 +176,8 @@ function loco() {
         const userDetails = box3.querySelector('.user-details');
         userDetails.innerHTML = `
             <div class="user-email">
-                <img src="${userInfo.picture}" class="rounded-circle" width="100" height="100" />
-                <p>Email: ${userInfo.email}</p>
+                <img src="${userInfo.picture}" class="rounded-circle" width="50" height="50" />
+                <p style="font-size: 10px;">Email: ${userInfo.email}</p>
             </div>
         `;
     
