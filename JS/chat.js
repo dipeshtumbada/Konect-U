@@ -185,6 +185,7 @@ function loco() {
         logoutBtn.textContent = 'Logout';
         logoutBtn.classList.add('btn', 'btn-danger');
         logoutBtn.addEventListener('click', () => {
+            google.accounts.id.disableAutoSelect();
             sessionStorage.clear();
             window.location.href = 'login.html';
         });
