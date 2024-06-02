@@ -1,79 +1,17 @@
-.data{
+.data {
   display: none;
 }
 
-.g-signin2{
+.g_id_signin {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -50px;
-  margin-left: -50px;
+  transform: translate(-50%, -50%);
 }
 
-
-
-
-/* body{
-    margin: 0px;
-    padding: 0px;
-    background: #161820;
-  }
-  .container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .logo {
-    width: 200px; 
-    height: auto;
-    margin-bottom: 20px; 
+#useChatbotBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-  .my-form{
-    background: #fff;
-    padding: 30px 50px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .form-title{
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .form-title h1{
-    margin: 0px;
-    color: rgb(101, 101, 206);
-  }
-  .single-input{
-    width: 270px;
-    border:1px solid #c1c1c1;
-    display: flex;
-    margin-bottom: 15px;
-    border-radius: 5px;
-  }
-  .single-input i{
-    padding: 8px 16px;
-    color: rgb(101, 101, 206);
-  }
-  .single-input input{
-    border: 0;
-    width: 100%;
-    outline: none;
-    height: 30px;
-    font-size: 18px;
-    border-radius: 5px;
-  }
-  .submit-btn{
-     border: 0;
-     margin-top: 30px;
-     
-  }
-  .submit-btn input{
-     background: rgb(101, 101, 206);
-     color: #fff;
-     cursor: pointer; 
-     width: 100%;
-     font-size: 18px;
-     border-radius: 5px;
-  } */

@@ -7,9 +7,10 @@ function onSignIn(response) {
   console.log('Image URL: ' + responsePayload.picture);
   console.log('Email: ' + responsePayload.email);
 
-  $("#name").text(responsePayload.name);
-  $("#email").text(responsePayload.email);
-  $("#image").attr('src', responsePayload.picture);
+  sessionStorage.setItem('userName', responsePayload.name);
+  sessionStorage.setItem('userEmail', responsePayload.email);
+  sessionStorage.setItem('userPicture', responsePayload.picture);
+
   $(".data").css("display", "block");
   $(".g_id_signin").css("display", "none");
 }
@@ -30,3 +31,7 @@ function signOut() {
   $(".g_id_signin").css("display", "block");
   $(".data").css("display", "none");
 }
+
+document.getElementById('useChatbotBtn').addEventListener('click', function() {
+  window.location.href = 'chat.html';
+});
