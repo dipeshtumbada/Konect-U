@@ -107,7 +107,16 @@
                           </section>
                     </div>
                     <div class="column">
-                        <div class="box" id="box3"></div>
+                        <div class="box" id="box3">
+                          <div class="user-info">
+                            <img class="user-icon rounded-circle" src="" alt="User Photo">
+                            <div class="user-name"></div>
+                        </div>
+                        <div class="user-details">
+                            <p class="user-email"></p>
+                            <button class="btn btn-danger logout-btn">Logout</button>
+                        </div>
+                        </div>
 
                         <div class="box" id="box4">Settings</div>
                     </div>
@@ -120,6 +129,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="JS/chat.js"></script>
-  
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const userInfo = {
+        name: sessionStorage.getItem('userName'),
+        email: sessionStorage.getItem('userEmail'),
+        picture: sessionStorage.getItem('userPicture')
+    };
+
+    const box3 = document.getElementById('box3');
+
+    const userIcon = box3.querySelector('.user-icon');
+    userIcon.src = userInfo.picture;
+
+    const userName = box3.querySelector('.user-name');
+    userName.textContent = userInfo.name;
+
+    const userEmail = box3.querySelector('.user-email');
+    userEmail.textContent = userInfo.email;
+
+    const logoutBtn = box3.querySelector('.logout-btn');
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.clear();
+        window.location.href = 'login.html';
+    });
+});
+
+    </script>
 </body>
 </html>
