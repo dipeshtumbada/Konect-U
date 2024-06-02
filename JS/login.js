@@ -1,17 +1,32 @@
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    $("#name").text(profile.getName());
-    $("#email").text(profile.getEmail());
-    $("#image").attr('src', profile.getImageURL());
-    $(".data").css("display", "block");
-    $(".g-signin2").css("display", "none");
-  }
+function onSignIn(response) {
+  // Decode the credential response
+  const responsePayload = parseJwt(response.credential);
 
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      alert("You have been signed out successfully");
-      $(".g-signin2").css("display", "block");
-      $(".data").css("display", "none");
-    });
-  }
+  console.log('ID: ' + responsePayload.sub); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + responsePayload.name);
+  console.log('Image URL: ' + responsePayload.picture);
+  console.log('Email: ' + responsePayload.email);
+
+  $("#name").text(responsePayload.name);
+  $("#email").text(responsePayload.email);
+  $("#image").attr('src', responsePayload.picture);
+  $(".data").css("display", "block");
+  $(".g_id_signin").css("display", "none");
+}
+
+function parseJwt(token) {
+  var base64Url = token.split('.')[1];
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+
+  return JSON.parse(jsonPayload);
+}
+
+function signOut() {
+  google.accounts.id.disableAutoSelect();
+  alert("You have been signed out successfully");
+  $(".g_id_signin").css("display", "block");
+  $(".data").css("display", "none");
+}
