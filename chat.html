@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot UI</title>
+    <link rel="stylesheet" href="CSS/chat.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="main">
+        <div id="page">
+            <div id="logo-container">
+                <img src="components/logo.gif" alt="Logo">
+            </div>
+            <nav>
+                <div id="capsule">
+                    <a href="javascript:void(0)" onclick="window.location.href='index.html'">Home</a>
+                    <a href="javascript:void(0)" onclick="window.location.href='index.html'">About</a>
+                    <a href="javascript:void(0)" onclick="window.location.href='index.html'">Our Services</a>
+                    <a href="javascript:void(0)" onclick="window.location.href='team.html'">Our Team</a>
+                </div>
+                <button onclick="location.href='login.html'">Login</button>
+            </nav>
+
+            <main>
+                <div class="container">
+                    <div class="box" id="box1" class="box-heading">HISTORY <br> CHAT</div>
+                    <div class="box" id="box2">
+                        <section class="msger">
+                            <header class="msger-header">
+                              <div class="msger-header-title">
+                                Chat with <span class="space" id="word">AI Assistance</span>
+                              </div>
+                              <div class="msger-header-options">
+                                <span>
+                                    <i class="fa fa-trash"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </span>
+                              </div>
+                            </header>
+                          
+                            <main class="msger-chat">
+                              <div class="msg left-msg">
+                                <div
+                                 class="msg-img"
+                                 style="background-image: url(components/logo.gif)"
+                                ></div>
+                          
+                                <div class="msg-bubble">
+                                  <div class="msg-info">
+                                    <div class="msg-info-name">BOT</div>
+                                    <div class="msg-info-time">12:45</div>
+                                  </div>
+                          
+                                  <div class="msg-text">
+                                    Hi, welcome to SimpleChat! Go ahead and send me a message. 😄
+                                  </div>
+                                </div>
+                              </div>
+                          
+                              <div class="msg right-msg">
+                                <div
+                                 class="msg-img"
+                                 style="background-image: url(https://cdn-icons-png.flaticon.com/512/145/145867.png)"
+                                ></div>
+                          
+                                <div class="msg-bubble">
+                                  <div class="msg-info">
+                                    <div class="msg-info-name">USER</div>
+                                    <div class="msg-info-time">12:46</div>
+                                  </div>
+                          
+                                  <div class="msg-text">
+                                    Can I ask you one question ??
+                                  </div>
+                                </div>
+                              </div>
+                            </main>
+                          
+                            <form class="msger-inputarea">
+                                <div class="msger-input-wrapper">
+                                  <textarea class="msger-input" placeholder="Ask me Search anything..."></textarea>
+                                  <button type="reset" class="msger-reset-btn">
+                                    <i class="fa fa-refresh"></i>
+                                  </button>
+                                  <div class="msger-actions">
+                                    <div class="msger-icons-left">
+                                      <button type="button" class="msger-icon-btn">
+                                        <i class="fa fa-folder-open"></i> Browse Prompts
+                                      </button>
+                                      <button type="button" class="msger-icon-btn">
+                                        <i class="fa fa-microphone"></i> Voice Search
+                                      </button>
+                                    </div>
+                                    <button type="submit" class="msger-send-btn">
+                                      <i class="fa fa-paper-plane"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </form>
+                              
+                              
+                              
+                              
+                          </section>
+                    </div>
+                    <div class="column">
+                        <div class="box" id="box3">
+                          <div class="user-info">
+                            <i class="fa fa-user user-icon"></i>
+                            <div class="user-name">USER INFO</div>
+                        </div>
+                        <div class="user-details">
+                            <p>Email: user@example.com</p>
+                            <p>Phone: +1234567890</p>
+                            <p>Address: 123 Main St, City, Country</p>
+                        </div>
+                        </div>
+                        <div class="box" id="box4">Settings</div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="JS/chat.js"></script>
+</body>
+</html>
