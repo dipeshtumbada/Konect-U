@@ -160,7 +160,6 @@ function loco() {
     }
 
     // ************************************************************** //
-
     document.addEventListener('DOMContentLoaded', () => {
         const userInfo = {
             name: sessionStorage.getItem('userName'),
@@ -170,16 +169,21 @@ function loco() {
     
         const box3 = document.getElementById('box3');
     
-        const userName = box3.querySelector('.user-name');
-        userName.textContent = userInfo.name;
+        const userEmailContainer = document.createElement('div');
+        userEmailContainer.classList.add('user-email');
     
-        const userDetails = box3.querySelector('.user-details');
-        userDetails.innerHTML = `
-            <div class="user-email">
-                <img src="${userInfo.picture}" class="rounded-circle" width="100" height="100" />
-                <p>Email: ${userInfo.email}</p>
-            </div>
-        `;
+        const userImage = document.createElement('img');
+        userImage.src = userInfo.picture;
+        userImage.classList.add('rounded-circle');
+        userImage.width = 100;
+        userImage.height = 100;
+        userEmailContainer.appendChild(userImage);
+    
+        const userEmail = document.createElement('p');
+        userEmail.textContent = `Email: ${userInfo.email}`;
+        userEmailContainer.appendChild(userEmail);
+    
+        box3.appendChild(userEmailContainer);
     
         const logoutBtn = document.createElement('button');
         logoutBtn.textContent = 'Logout';
@@ -191,6 +195,7 @@ function loco() {
         });
         box3.appendChild(logoutBtn);
     });
+    
     
 
     // ************************************************************* //
