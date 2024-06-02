@@ -176,7 +176,7 @@ function loco() {
         const userImage = document.createElement('img');
         userImage.src = userInfo.picture;
         userImage.classList.add('rounded-circle');
-        userImage.width = 100;
+        userImage.width = 100;  
         userImage.height = 100;
         userEmailContainer.appendChild(userImage);
     
