@@ -148,7 +148,10 @@
     const userEmail = box3.querySelector('.user-email');
     userEmail.textContent = userInfo.email;
 
-    const logoutBtn = box3.querySelector('.logout-btn');
+    // const logoutBtn = box3.querySelector('.logout-btn');
+    const logoutBtn = document.createElement('button');
+        logoutBtn.textContent = 'Logout';
+        logoutBtn.classList.add('btn', 'btn-danger');
     logoutBtn.addEventListener('click', () => {
         google.accounts.id.disableAutoSelect();
         sessionStorage.clear();
