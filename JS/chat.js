@@ -170,31 +170,31 @@ function loco() {
     
         const box3 = document.getElementById('box3');
     
-        const userEmailContainer = document.createElement('div');
-        userEmailContainer.classList.add('user-email');
+        // const userEmailContainer = document.createElement('div');
+        // userEmailContainer.classList.add('user-email');
     
-        const userImage = document.createElement('img');
-        userImage.src = userInfo.picture;
-        userImage.classList.add('rounded-circle');
-        userImage.width = 100;  
-        userImage.height = 100;
-        userEmailContainer.appendChild(userImage);
+        // const userImage = document.createElement('img');
+        // userImage.src = userInfo.picture;
+        // userImage.classList.add('rounded-circle');
+        // userImage.width = 100;  
+        // userImage.height = 100;
+        // userEmailContainer.appendChild(userImage);
     
-        const userEmail = document.createElement('p');
-        userEmail.textContent = `Email: ${userInfo.email}`;
-        userEmailContainer.appendChild(userEmail);
+        // const userEmail = document.createElement('p');
+        // userEmail.textContent = `Email: ${userInfo.email}`;
+        // userEmailContainer.appendChild(userEmail);
     
-        box3.appendChild(userEmailContainer);
+        // box3.appendChild(userEmailContainer);
     
-        const logoutBtn = document.createElement('button');
-        logoutBtn.textContent = 'Logout';
-        logoutBtn.classList.add('btn', 'btn-danger');
-        logoutBtn.addEventListener('click', () => {
-            google.accounts.id.disableAutoSelect();
-            sessionStorage.clear();
-            window.location.href = 'login.html';
-        });
-        box3.appendChild(logoutBtn);
+        // const logoutBtn = document.createElement('button');
+        // logoutBtn.textContent = 'Logout';
+        // logoutBtn.classList.add('btn', 'btn-danger');
+        // logoutBtn.addEventListener('click', () => {
+        //     google.accounts.id.disableAutoSelect();
+        //     sessionStorage.clear();
+        //     window.location.href = 'login.html';
+        // });
+        // box3.appendChild(logoutBtn);
     });
     
     
