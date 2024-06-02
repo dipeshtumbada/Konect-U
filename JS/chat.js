@@ -163,10 +163,9 @@ function loco() {
 
     document.addEventListener('DOMContentLoaded', () => {
         const userInfo = {
-            name: 'John Doe',
-            email: 'john.doe@example.com',
-            phone: '+1234567890',
-            address: '123 Main St, City, Country'
+            name: sessionStorage.getItem('userName'),
+            email: sessionStorage.getItem('userEmail'),
+            picture: sessionStorage.getItem('userPicture')
         };
     
         const box3 = document.getElementById('box3');
@@ -176,11 +175,22 @@ function loco() {
     
         const userDetails = box3.querySelector('.user-details');
         userDetails.innerHTML = `
-            <p>Email: ${userInfo.email}</p>
-            <p>Phone: ${userInfo.phone}</p>
-            <p>Address: ${userInfo.address}</p>
+            <div class="user-email">
+                <img src="${userInfo.picture}" class="rounded-circle" width="100" height="100" />
+                <p>Email: ${userInfo.email}</p>
+            </div>
         `;
+    
+        const logoutBtn = document.createElement('button');
+        logoutBtn.textContent = 'Logout';
+        logoutBtn.classList.add('btn', 'btn-danger');
+        logoutBtn.addEventListener('click', () => {
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        });
+        box3.appendChild(logoutBtn);
     });
+    
 
     // ************************************************************* //
 
