@@ -117,7 +117,7 @@
                             <button class="btn btn-danger logout-btn">Logout</button>
                         </div>
                         </div>
-                        
+
                         <div class="box" id="box4">Settings</div>
                     </div>
                 </div>
@@ -150,6 +150,7 @@
 
     const logoutBtn = box3.querySelector('.logout-btn');
     logoutBtn.addEventListener('click', () => {
+        google.accounts.id.disableAutoSelect();
         sessionStorage.clear();
         window.location.href = 'login.html';
     });

@@ -160,41 +160,42 @@ function loco() {
     }
 
     // ************************************************************** //
-    document.addEventListener('DOMContentLoaded', () => {
-        const userInfo = {
-            name: sessionStorage.getItem('userName'),
-            email: sessionStorage.getItem('userEmail'),
-            picture: sessionStorage.getItem('userPicture')
-        };
     
-        const box3 = document.getElementById('box3');
+    // document.addEventListener('DOMContentLoaded', () => {
+    //     const userInfo = {
+    //         name: sessionStorage.getItem('userName'),
+    //         email: sessionStorage.getItem('userEmail'),
+    //         picture: sessionStorage.getItem('userPicture')
+    //     };
     
-        const userEmailContainer = document.createElement('div');
-        userEmailContainer.classList.add('user-email');
+    //     const box3 = document.getElementById('box3');
     
-        const userImage = document.createElement('img');
-        userImage.src = userInfo.picture;
-        userImage.classList.add('rounded-circle');
-        userImage.width = 100;
-        userImage.height = 100;
-        userEmailContainer.appendChild(userImage);
+    //     const userEmailContainer = document.createElement('div');
+    //     userEmailContainer.classList.add('user-email');
     
-        const userEmail = document.createElement('p');
-        userEmail.textContent = `Email: ${userInfo.email}`;
-        userEmailContainer.appendChild(userEmail);
+    //     const userImage = document.createElement('img');
+    //     userImage.src = userInfo.picture;
+    //     userImage.classList.add('rounded-circle');
+    //     userImage.width = 100;
+    //     userImage.height = 100;
+    //     userEmailContainer.appendChild(userImage);
     
-        box3.appendChild(userEmailContainer);
+    //     const userEmail = document.createElement('p');
+    //     userEmail.textContent = `Email: ${userInfo.email}`;
+    //     userEmailContainer.appendChild(userEmail);
     
-        const logoutBtn = document.createElement('button');
-        logoutBtn.textContent = 'Logout';
-        logoutBtn.classList.add('btn', 'btn-danger');
-        logoutBtn.addEventListener('click', () => {
-            google.accounts.id.disableAutoSelect();
-            sessionStorage.clear();
-            window.location.href = 'login.html';
-        });
-        box3.appendChild(logoutBtn);
-    });
+    //     box3.appendChild(userEmailContainer);
+    
+    //     const logoutBtn = document.createElement('button');
+    //     logoutBtn.textContent = 'Logout';
+    //     logoutBtn.classList.add('btn', 'btn-danger');
+    //     logoutBtn.addEventListener('click', () => {
+    //         google.accounts.id.disableAutoSelect();
+    //         sessionStorage.clear();
+    //         window.location.href = 'login.html';
+    //     });
+    //     box3.appendChild(logoutBtn);
+    // });
     
     
 
