@@ -109,13 +109,12 @@
                     <div class="column">
                         <div class="box" id="box3">
                           <div class="user-info">
-                            <i class="fa fa-user user-icon"></i>
-                            <div class="user-name">USER INFO</div>
+                            <img class="user-icon rounded-circle" src="" alt="User Photo">
+                            <div class="user-name"></div>
                         </div>
                         <div class="user-details">
-                            <p>Email: user@example.com</p>
-                            <p>Phone: +1234567890</p>
-                            <p>Address: 123 Main St, City, Country</p>
+                            <p class="user-email"></p>
+                            <button class="btn btn-danger logout-btn">Logout</button>
                         </div>
                         </div>
                         <div class="box" id="box4">Settings</div>
@@ -131,23 +130,30 @@
     <script src="JS/chat.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const userInfo = {
-                name: sessionStorage.getItem('userName'),
-                email: sessionStorage.getItem('userEmail'),
-                picture: sessionStorage.getItem('userPicture')
-            };
+    const userInfo = {
+        name: sessionStorage.getItem('userName'),
+        email: sessionStorage.getItem('userEmail'),
+        picture: sessionStorage.getItem('userPicture')
+    };
 
-            const box3 = document.getElementById('box3');
+    const box3 = document.getElementById('box3');
 
-            const userName = box3.querySelector('.user-name');
-            userName.textContent = userInfo.name;
+    const userIcon = box3.querySelector('.user-icon');
+    userIcon.src = userInfo.picture;
 
-            const userDetails = box3.querySelector('.user-details');
-            userDetails.innerHTML = `
-                <p>Email: ${userInfo.email}</p>
-                <img src="${userInfo.picture}" class="rounded-circle" width="100" height="100" />
-            `;
-        });
+    const userName = box3.querySelector('.user-name');
+    userName.textContent = userInfo.name;
+
+    const userEmail = box3.querySelector('.user-email');
+    userEmail.textContent = userInfo.email;
+
+    const logoutBtn = box3.querySelector('.logout-btn');
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.clear();
+        window.location.href = 'login.html';
+    });
+});
+
     </script>
 </body>
 </html>
