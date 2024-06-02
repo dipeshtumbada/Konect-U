@@ -170,31 +170,25 @@ function loco() {
     
         const box3 = document.getElementById('box3');
     
-        // const userEmailContainer = document.createElement('div');
-        // userEmailContainer.classList.add('user-email');
+        const userName = box3.querySelector('.user-name');
+        userName.textContent = userInfo.name;
     
-        // const userImage = document.createElement('img');
-        // userImage.src = userInfo.picture;
-        // userImage.classList.add('rounded-circle');
-        // userImage.width = 100;  
-        // userImage.height = 100;
-        // userEmailContainer.appendChild(userImage);
+        const userDetails = box3.querySelector('.user-details');
+        userDetails.innerHTML = `
+            <div class="user-email">
+                <img src="${userInfo.picture}" class="rounded-circle" width="100" height="100" />
+                <p>Email: ${userInfo.email}</p>
+            </div>
+        `;
     
-        // const userEmail = document.createElement('p');
-        // userEmail.textContent = `Email: ${userInfo.email}`;
-        // userEmailContainer.appendChild(userEmail);
-    
-        // box3.appendChild(userEmailContainer);
-    
-        // const logoutBtn = document.createElement('button');
-        // logoutBtn.textContent = 'Logout';
-        // logoutBtn.classList.add('btn', 'btn-danger');
-        // logoutBtn.addEventListener('click', () => {
-        //     google.accounts.id.disableAutoSelect();
-        //     sessionStorage.clear();
-        //     window.location.href = 'login.html';
-        // });
-        // box3.appendChild(logoutBtn);
+        const logoutBtn = document.createElement('button');
+        logoutBtn.textContent = 'Logout';
+        logoutBtn.classList.add('btn', 'btn-danger');
+        logoutBtn.addEventListener('click', () => {
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        });
+        box3.appendChild(logoutBtn);
     });
     
     
